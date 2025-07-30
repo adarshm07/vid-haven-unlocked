@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Heart, Play, Plus, Check } from "lucide-react";
+import { Heart, Play, Plus, Check, Share2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface Video {
@@ -24,6 +24,30 @@ interface VideoCardProps {
 
 export const VideoCard = ({ video, onPlay, isInWatchlist, onToggleWatchlist }: VideoCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleShare = () => {
+    // Implement share functionality here
+    // For now, let's just log the video title
+    console.log(`Sharing: ${video.title}`);
+    // In a real application, you would use the Web Share API or a custom share dialog
+    if (navigator.share) {
+      navigator.share({
+        title: video.title,
+        text: video.description,
+        url: `https://www.youtube.com/watch?v=${video.youtubeId}`,
+      }).catch((error) => console.error("Error sharing:", error));
+    } else {
+      // Fallback for browsers that do not support the Web Share API
+      // You could copy the URL to the clipboard or open a share dialog
+      console.log("Web Share API not supported");
+      // Example: Copy to clipboard (requires navigator.clipboard)
+      navigator.clipboard.writeText(`https://www.youtube.com/watch?v=${video.youtubeId}`).then(() => {
+        alert("Video URL copied to clipboard!");
+      }).catch((err) => {
+        console.error("Could not copy text: ", err);
+      });
+    }
+  };
 
   return (
     <Card 
@@ -88,6 +112,15 @@ export const VideoCard = ({ video, onPlay, isInWatchlist, onToggleWatchlist }: V
             Watch
           </Button>
           
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleShare}
+            className="transition-colors text-muted-foreground hover:text-primary"
+          >
+            <Share2 className="w-4 h-4" />
+          </Button>
+
           <Button
             variant="ghost"
             size="sm"
