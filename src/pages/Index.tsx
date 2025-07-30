@@ -40,7 +40,7 @@ const Index = () => {
       <div className="relative overflow-hidden bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20 py-20 sm:py-28">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4">
-            Welcome to <span className="bg-gradient-primary bg-clip-text text-transparent">VideoHub</span>
+            Welcome to <span className="bg-gradient-primary bg-clip-text text-transparent">Akam India</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Explore a world of videos, curated just for you. Discover new content and build your watchlist.
