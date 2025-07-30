@@ -71,10 +71,10 @@ export const VideoCard = ({ video, onPlay, isInWatchlist, onToggleWatchlist }: V
           )}
         >
           <Button
-            variant="glow"
+            variant="ghost"
             size="lg"
             onClick={() => onPlay(video)}
-            className="rounded-full"
+            className="rounded-full border border-white text-white hover:bg-white/20"
           >
             <Play className="w-6 h-6" />
           </Button>

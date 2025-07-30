@@ -10,7 +10,8 @@ export const sampleVideos: Video[] = [
     youtubeId: "dQw4w9WgXcQ", // Sample YouTube ID
     duration: "12:34",
     views: "1.2M",
-    channel: "Tech Insights"
+    channel: "Tech Insights",
+    isFeatured: true
   },
   {
     id: "2",
