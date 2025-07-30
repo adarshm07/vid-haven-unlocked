@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { VideoCard, Video } from "@/components/VideoCard";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { WatchlistButton } from "@/components/WatchlistButton";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useWatchlist } from "@/hooks/useWatchlist";
 import { sampleVideos } from "@/data/sampleVideos";
 import { Search, Play, Sparkles } from "lucide-react";
@@ -76,11 +77,14 @@ const Index = () => {
             />
           </div>
           
-          <div className="text-sm text-muted-foreground">
-            {showWatchlistOnly 
-              ? `Showing ${watchlistVideos.length} videos in your watchlist`
-              : `Showing ${filteredVideos.length} of ${sampleVideos.length} videos`
-            }
+          <div className="flex items-center gap-4">
+            <div className="text-sm text-muted-foreground">
+              {showWatchlistOnly 
+                ? `Showing ${watchlistVideos.length} videos in your watchlist`
+                : `Showing ${filteredVideos.length} of ${sampleVideos.length} videos`
+              }
+            </div>
+            <ThemeToggle />
           </div>
         </div>
 
